@@ -71,8 +71,8 @@ spec:
            - containerPort: 80
 
 
-Service
---------
+ClusterIP Service
+-----------------
 kind: Service
 apiVersion: v1
 metadata:
@@ -84,4 +84,33 @@ spec:
   selector:
     name: deployment
   type: ClusterIP
-
+  
+  NodePort Service
+  ----------------
+  kind: Service
+apiVersion: v1
+metadata:
+  name: demoservice
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+	  nodePort: 30000 # 30000 - 32767
+  selector:
+    name: deployment
+  type: NodePort
+  
+  
+  Headless Service
+  -----------------
+kind: Service
+apiVersion: v1
+metadata:
+  name: demoservice
+spec:
+  clusterIP: None
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    name: deployment
