@@ -155,5 +155,24 @@ spec:
     secret:
        secretName: mysecret
 
-
+Liveness Probe
+--------------
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-exec
+spec:
+  containers:
+  - name: liveness
+    image: k8s.gcr.io/busybox
+    command: ["/bin/sh","-c","touch /tmp/healthy; sleep 3000"]
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 5
+      periodSeconds: 5
 
