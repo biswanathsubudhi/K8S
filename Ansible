@@ -1,0 +1,197 @@
+YAML Datatypes
+•	It's usually good enough to enclose strings in quotes, leave numbers unquoted
+
+Key-Value Pairs and Dictionaries
+•	The key-value is YAML's basic building block.
+•	Every item in a YAML document is a member of at least one dictionary.
+•	The key is always a string
+•	The value is a scalar so that it can be any datatype, the value can be a string, a number, or another dictionary. 
+•	Scalars are ordinary values: numbers, strings, booleans
+
+Numeric types
+*******Example*********
+---
+ foo: 10
+ bar: 20
+ plop: 30
+*******Example*********
+
+Strings
+*******Example*********
+---
+ foo: this is a normal string
+ bar: this is a another string
+*******Example*********
+
+
+Nulls
+You enter nulls with a tilde or the unquoted null string literal.
+*******Example*********
+---
+foo: ~
+bar: null
+*******Example*********
+
+Booleans
+YAML indicates boolean values with the keywords True, On and Yes for true. 
+False is indicated with False, Off, or No.
+*******Example*********
+---
+foo: True
+bar: False
+light: On
+TV: Off
+*******Example*********
+
+
+
+
+
+
+
+
+
+Arrays
+•	You can specify arrays or lists on a single line.
+•	An array can contain any valid YAML value. 
+•	The values in a list do not have to be the same type.
+*******Example*********
+---
+items: [ 1, 2, 3, 4, 5 ]
+names: [ "one", "two", "three", "four" ]
+*******Example*********
+
+Or, you can put them on multiple lines.
+
+*******Example*********
+---
+items:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+
+names:
+  - "one"
+  - "two"
+  - "three"
+  - "four"
+*******Example*********
+
+The multiple line format is useful for lists that contain complex objects instead of scalars.
+*******Example*********
+---
+items:
+  - things:
+      thing1: huey
+      things2: dewey
+      thing3: louie
+  - other things:
+      key: value
+*******Example*********
+
+Some more information about list and dictionary:
+Lists and Dictionaries
+Lists:
+•	Lists are collections of elements
+•	Every element of the list is indented and starts with a dash and a space.
+*******Example*********
+jedis:
+  - Yoda
+  - Qui-Gon Jinn
+  - Obi-Wan Kenobi
+  - Luke Skywalker
+*******Example*********
+Dictionaries
+•	Dictionaries are collections of key: value mappings. All keys are case-sensitive.
+•	Note that a space after the colon is mandatory.
+
+*******Example*********
+jedi:
+  name: Obi-Wan Kenobi
+  home-planet: Stewjon
+  species: human
+  master: Qui-Gon Jinn
+  height: 1.82m
+*******Example*********
+
+•	Dictionaries can be nested in lists (and vice versa) to create more complex structures:
+
+*******Example*********
+requests:
+  # first item of `requests` list is just a string
+  - http://example.com/
+ 
+  # second item of `requests` list is a dictionary
+  - url: http://example.com/
+    method: GET
+*******Example*********
+
+
+
+
+
+
+
+
+
+
+
+
+key-value.yml
+fruit: apple
+vegetable: tomato
+liquid: water
+
+
+
+array.yml / list
+Mobiles:
+ - nokia_c6
+ - vivo_v5
+ - mi_note5
+
+
+
+ 
+
+dict_map.yml ( attributes of each moble nokia and vivo)
+nokia_c6:
+    ram: 16GB
+    price: 15000
+    display:7inch
+vivo_v5:
+    ram: 8gb
+    price: 25000
+    display: 9inch
+
+ 
+
+dict_in_dict ( Lets talk about 
+nokia_c6:
+  ram: 
+     size: 16GB
+     price: 5000
+  price: 15000
+  display:7inch
+vivo_v5:
+  ram: 
+     size: 8gb
+     price: 7000
+  price: 25000
+  display: 9inch
+
+
+
+List_of_dict
+mobiles:
+     -
+	   name: nohia_c6
+	   ram: 4gb
+	   price: 15000
+     -
+	   name: vivo_v5
+	   ram: 8gb
+	   price: 25000
+
