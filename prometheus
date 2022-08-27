@@ -7,10 +7,10 @@ route:
 receivers:
 - name: 'gmail-notifications'
   email_configs:
-  - to: amiya.aws2@gmail.com
-    from: amiya.aws2@gmail.com
+  - to: biswa.aws@gmail.com
+    from: biswa.aws@gmail.com
     smarthost: smtp.gmail.com:587
-    auth_username: amiya.aws2@gmail.com
-    auth_identity: amiya.aws2@gmail.com
+    auth_username: biswa.aws@gmail.com
+    auth_identity: biswa.aws@gmail.com
     auth_password: eqplgukhbqsjlpwe
     send_resolved: true
